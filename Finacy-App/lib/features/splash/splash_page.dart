@@ -15,7 +15,7 @@ class SplashPage extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: AppColors.greenGradient,
-          ),
+          ),  
         ),
         child: Text(
           'coinic',

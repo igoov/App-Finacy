@@ -7,6 +7,8 @@ class OnboardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isEnabled = true;
+
     return Scaffold(
       backgroundColor: AppColors.iceWhite,
       body: SafeArea(
@@ -14,9 +16,12 @@ class OnboardingPage extends StatelessWidget {
           children: [
             const SizedBox(height: 60.0),
             Expanded(
-              flex: 3,
-              child: Image.asset(
-                'assets/images/Group1.png',
+              flex: 2,
+              child: Container(
+                color: AppColors.iceWhite,
+                child: Center(
+                  child: Image.asset('assets/images/Group1.png'),
+                ),
               ),
             ),
             Text(
@@ -37,19 +42,21 @@ class OnboardingPage extends StatelessWidget {
               child: Material(
                 borderRadius: BorderRadius.circular(38.0),
                 child: Ink(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(38.0)),
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(38.0)),
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: AppColors.greenGradient,
+                      colors: isEnabled
+                          ? AppColors.greenGradient
+                          : AppColors.greyGradient,
                     ),
                   ),
                   child: InkWell(
                     borderRadius: BorderRadius.circular(38.0),
                     splashColor: Colors.white24,
                     highlightColor: Colors.white10,
-                    onTap: () {},
+                    onTap: isEnabled ? () {} : null,
                     child: Container(
                       alignment: Alignment.center,
                       height: 64.0,
@@ -78,4 +85,3 @@ class OnboardingPage extends StatelessWidget {
     );
   }
 }
-  

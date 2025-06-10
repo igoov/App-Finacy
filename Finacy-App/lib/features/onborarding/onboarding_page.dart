@@ -8,22 +8,15 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Align(
+      backgroundColor: AppColors.iceWhite,
+      body: SafeArea(
         child: Column(
           children: [
             const SizedBox(height: 60.0),
             Expanded(
-              flex: 2,
-              child: Container(
-                color: AppColors.iceWhite,
-                child: Image.asset(
-                  'assets/images/Group1.png',
-                ),
-              ),
-            ),
-            Expanded(
-              child: Container(
-                color: AppColors.white
+              flex: 3,
+              child: Image.asset(
+                'assets/images/Group1.png',
               ),
             ),
             Text(
@@ -33,23 +26,56 @@ class OnboardingPage extends StatelessWidget {
               ),
             ),
             Text(
-              'E economize mais',
+              'e economize mais',
               style: AppTextStyles.mediumText.copyWith(
                 color: AppColors.greeligthTwo,
               ),
             ),
-            ElevatedButton(onPressed: (){}, child: const Text('começar'),
+            const SizedBox(height: 16.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 32.0),
+              child: Material(
+                borderRadius: BorderRadius.circular(38.0),
+                child: Ink(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(38.0)),
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: AppColors.greenGradient,
+                    ),
+                  ),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(38.0),
+                    splashColor: Colors.white24,
+                    highlightColor: Colors.white10,
+                    onTap: () {},
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 64.0,
+                      child: Text(
+                        'Começar',
+                        style: AppTextStyles.mediumText18.copyWith(
+                          color: AppColors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ),
+            const SizedBox(height: 16.0),
             Text(
-              'Já tem conta? Entrar',
+              'Já tem uma conta? Entrar',
               style: AppTextStyles.smallText.copyWith(
                 color: AppColors.grey,
               ),
             ),
-            SizedBox(height: 60.0,)
+            const SizedBox(height: 40.0),
           ],
         ),
       ),
     );
   }
 }
+  
